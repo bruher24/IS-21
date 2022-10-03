@@ -10,8 +10,8 @@ async function sendRequest(params = {}) {
 
     async function send(){
         const value = document.getElementById('value').value;
-        const degFirst = document.getElementById('select-1').value;
-        const degSecond = document.getElementById('select-2').value;
+        const degFirst = document.getElementById('select_1').value;
+        const degSecond = document.getElementById('select_2').value;
         const answer = await sendRequest({value, degFirst, degSecond});
 
         document.getElementById('result').innerHTML =answer;
