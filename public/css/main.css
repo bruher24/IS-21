@@ -1,0 +1,21 @@
+#input-div{
+    margin: 5px;
+    margin-top: 10px;
+}
+#select-1{
+    margin: 5px;
+    display: flex;
+    margin-top: 10px;
+}
+#select-2{
+    margin: 5px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+#result{
+    margin: 5px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
