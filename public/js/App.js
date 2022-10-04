@@ -1,94 +1,60 @@
-'use strict';
+window.onload = function () {
 
-const e = React.createElement;
+  async function sendRequest(params = {}) {
+    const query = Object.keys(params)
+      .map(key => `${key}=${params[key]}`).join('&');
+    const response = await fetch(`api/?${query}`);
+    return await response.text();
+  }
 
-// class LikeButton extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = { liked: false };
-//   }
+  async function send() {
+    const value = document.getElementById('value').value;
+    const degFirst = document.getElementById('degFirst').value;
+    const degSecond = document.getElementById('degSecond').value;
+    const answer = await sendRequest({ value, degFirst, degSecond });
 
-//   render() {
-//     if (this.state.liked) {
-//       return 'You liked this.';
-//     }
-
-//     return e(
-//       'button',
-//       { onClick: () => this.setState({ liked: true }) },
-//       'Like'
-//     );
-//   }
-// }
-// const domContainer = document.querySelector(
-//     '#root'
-//   )
-//   ReactDOM.render(e(LikeButton), domContainer)
+    document.getElementById('output').innerHTML = 'Ответ: ' + answer;
+  }
 
 
+  const domContainer = document.getElementById('root');
 
+  class Title extends React.Component {
 
-// class Inputs extends React.Component {
-//   render() {
+  }
 
-//     return e(
-//       'select',
-//       {
-//         id: 'select_1'
-//       },
-//       e(
-//         'option',
-//         {
-//           id: 'bin',
-//           value: '2'
-//         },
-//         '2'
-//       ),
-//       e(
-//         'option',
-//         {
-//           id: 'oct',
-//           value: '8'
-//         },
-//         '8'
-//       ),
-//       e(
-//         'option',
-//         {
-//           id: 'dec',
-//           value: '10'
-//         },
-//         '10'
-//       ),
-//       e(
-//         'option',
-//         {
-//           id: 'hex',
-//           value: '16'
-//         },
-//         '16'
-//       ),
-//     );
-//   }
+  const Button = ({ onClick }) => {
+    return (
+      <button id="send" onClick={onClick}>Перевести</button>
+    )
+  }
 
+  class Input extends React.Component {
+    render() {
+      return (
+        <div id="input">
+          <input id="value" type="number" placeholder="Введите число"></input>
+          <input id="degFirst" type="number" placeholder="Введите исходную систему счисления"></input>
+          <input id="degSecond" type="number" placeholder="Введите требуемую систему счисления"></input>
+          <Button onClick={send} />
+        </div>
+      );
+    }
+  }
 
-// }
+  class Output extends React.Component {
+    render() {
+      return (
+        <p id="output"></p>
+      );
+    }
+  }
 
-function App(){
-  return(
-    <select id="select_1" value="Test" onChange={(e) => onChange(e.target.value)}>
-      {/* <option selected disabled>тест</option> */}
-      <option>2-ичная</option>
-      <option>8-ичная</option>
-      <option>10-ичная</option>
-      <option>16-ичная</option>
-    </select>
-  );
+  ReactDOM.render(
+    <div id="show">
+      <Input />
+      <Output />
+    </div>,
+    domContainer
+  )
 }
-
-
-
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);

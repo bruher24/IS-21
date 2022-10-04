@@ -1,20 +1,21 @@
+window.onload = function () {
+    
 
-window.onload = function (){
 
-async function sendRequest(params = {}) {
-    const query = Object.keys(params)
-        .map(key => `${key}=${params[key]}`).join('&');
+    async function sendRequest(params = {}) {
+        const query = Object.keys(params)
+            .map(key => `${key}=${params[key]}`).join('&');
         const response = await fetch(`api/?${query}`);
         return await response.text();
-}
+    }
 
-    async function send(){
+    async function send() {
         const value = document.getElementById('value').value;
         const degFirst = document.getElementById('select_1').value;
         const degSecond = document.getElementById('select_2').value;
-        const answer = await sendRequest({value, degFirst, degSecond});
+        const answer = await sendRequest({ value, degFirst, degSecond });
 
-        document.getElementById('result').innerHTML =answer;
+        document.getElementById('result').innerHTML = answer;
     }
     document.getElementById('send').addEventListener('click', send);
 }

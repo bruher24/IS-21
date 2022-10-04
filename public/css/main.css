@@ -1,26 +1,53 @@
-#input_div{
+#value{
     margin: 5px;
-    margin-top: 10px;
-}
-#select_1{
-    margin: 5px;
+    padding: 2px;
     display: flex;
-    margin-top: 10px;
+    width: 310px;
+    height: 30px;
+    text-align: center;
+    font-size: 16px;
 }
-#select_2{
+#degFirst{
     margin: 5px;
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
-}
-#result{
-    margin: 5px;
-    margin-top: 10px;
+    padding: 2px;
     display: flex;
     flex-direction: column;
+    width: 310px;
+    height: 30px;
+    text-align: center;
+    font-size: 16px;
+}
+#degSecond{
+    margin: 5px;
+    padding: 2px;
+    display: flex;
+    flex-direction: column;
+    width: 310px;
+    height: 30px;
+    text-align: center;
+    font-size: 16px;
+}
+#send{
+    margin: 5px;
+    padding: 2px;
+    display: flex;
+    flex-direction: column;
+    width: 110px;
+    height: 30px;
+    font-size: 16px;
+    align-items: center;
+    justify-content: center;
 }
 #root{
+    width: 100%;
+}
+#show{
+    width:100%;
+}
+p{
     margin: 5px;
-    margin-top: 10px;
-    height: 15px;
+    padding: 2px;
+    flex-direction:column;
+    font-size: 30px !important; 
+    height: 30px !important;
 }

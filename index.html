@@ -5,7 +5,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>IS-21</title>
-    <script src="public/js/main.js"></script>
     <link rel="shortcut icon" href="#">
     <link rel="stylesheet" href="public/css/main.css"/>
 </head>
@@ -13,35 +12,16 @@
 <body>
 
 
-    <div id="input_div">
-        <input id="value" placeholder="Введите число">
-        <button id="send">Перевести</button>
-    </div>
-
-    <div id="output_div">
-        <select id="select_1">
-            <option selected disabled>Выберите исходную систему счисления</option>
-            <option id="bin" value="2">2-ичная</option>
-            <option id="oct" value="8">8-ичная</option>
-            <option id="dec" value="10">10-ичная</option>
-            <option id="hex" value="16">16-ичная</option>
-        </select>
-        <select id="select_2">
-            <option selected disabled>Выберите требуемую систему счисления</option>
-            <option id="bin" value="2">2-ичная</option>
-            <option id="oct" value="8">8-ичная</option>
-            <option id="dec" value="10">10-ичная</option>
-            <option id="hex" value="16">16-ичная</option>
-        </select>
-        <p id="result"></p>
-    </div>
+    
 
     <div id="root"></div>
 
-    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-    <script src="public/js/App.js" type="text/babel"></script>
+    <script type="text/babel" src="public/js/App.js"></script>
+    <!-- <script src="public/js/Inputs.js"></script> -->
+    <!-- <script type="module" src="public/js/main.js"></script> -->
 
 </body>
 
