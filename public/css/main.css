@@ -48,6 +48,6 @@ p{
     margin: 5px;
     padding: 2px;
     flex-direction:column;
-    font-size: 30px !important; 
-    height: 30px !important;
+    font-size: 30px; 
+    height: 30px;
 }

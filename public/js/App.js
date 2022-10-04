@@ -1,27 +1,21 @@
-window.onload = function () {
+async function sendRequest(params = {}) {
+  const query = Object.keys(params)
+    .map(key => `${key}=${params[key]}`).join('&');
+  const response = await fetch(`api/?${query}`);
+  return await response.text();
+}
 
-  async function sendRequest(params = {}) {
-    const query = Object.keys(params)
-      .map(key => `${key}=${params[key]}`).join('&');
-    const response = await fetch(`api/?${query}`);
-    return await response.text();
-  }
+async function send() {
+  const value = document.getElementById('value').value;
+  const degFirst = document.getElementById('degFirst').value;
+  const degSecond = document.getElementById('degSecond').value;
+  const answer = await sendRequest({ value, degFirst, degSecond });
 
-  async function send() {
-    const value = document.getElementById('value').value;
-    const degFirst = document.getElementById('degFirst').value;
-    const degSecond = document.getElementById('degSecond').value;
-    const answer = await sendRequest({ value, degFirst, degSecond });
-
-    document.getElementById('output').innerHTML = 'Ответ: ' + answer;
-  }
-
+  document.getElementById('output').innerHTML = answer;
+}
 
   const domContainer = document.getElementById('root');
 
-  class Title extends React.Component {
-
-  }
 
   const Button = ({ onClick }) => {
     return (
@@ -57,4 +51,3 @@ window.onload = function () {
     </div>,
     domContainer
   )
-}
