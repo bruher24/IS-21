@@ -5,10 +5,10 @@ class Calculator{
     public $degSecond;
 
     public function calculate($value, $degFirst, $degSecond){
-        if($degFirst > 1 && $degSecond > 1){
+        if($degFirst >= 2 && $degFirst <= 36 &&  $degSecond >= 2 && $degSecond <= 36){
         $answer = "Ответ: " . base_convert($value, $degFirst, $degSecond);
         }else{
-            $answer = 'Ошибка: введите корректную систему счисления';
+            $answer = 'Ошибка: Error';
         }
         return $answer;
     }
