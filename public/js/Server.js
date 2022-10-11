@@ -24,7 +24,7 @@ class Server {
     }
 
     convert(value, systemFrom, systemTo) {
-        if (value - 0 && systemFrom && systemTo) {
+        if (value && systemFrom && systemTo) {
             return this.send({ method: 'convert', value, systemFrom, systemTo });
         }
         return null;

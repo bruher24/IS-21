@@ -11,8 +11,8 @@
             $db = new DB();
             $this->user = new User($db);
             $this->dmitry = new Dmitry();
-            $this->chat = new Chat();
-            $this->game = new Game();
+            $this->chat = new Chat($db);
+            $this->game = new Game($db);
         }
         
         function login($params) {
