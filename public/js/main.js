@@ -1,26 +1,17 @@
-window.onload = function () {
-    
+import Server from './Server.js';
+window.onload = function(){
 
+    let server = new Server();
 
-    async function sendRequest(params = {}) {
-        const query = Object.keys(params)
-            .map(key => `${key}=${params[key]}`).join('&');
-        const response = await fetch(`api/?${query}`);
-        return await response.text();
+    function login() {
+        let login = document.getElementById('login').value;
+        let password = document.getElementById('password').value;
+        let value = document.getElementById('value').value;
+        let systemFrom = document.getElementById('degFirst').value;
+        let systemTo = document.getElementById('degSecond').value;
+        let answer = server.login(login, password);
+        return answer;
     }
-
-    async function send() {
-        const value = document.getElementById('value').value;
-        const degFirst = document.getElementById('select_1').value;
-        const degSecond = document.getElementById('select_2').value;
-        const answer = await sendRequest({ value, degFirst, degSecond });
-
-        document.getElementById('result').innerHTML = answer;
-    }
-    document.getElementById('send').addEventListener('click', send);
+    let elem = document.querySelector('#log_button');
+    elem.addEventListener('click', login);
 }
-//клиент написать на реакте
-//разрешить корсы (cors)
-//все должно быть в гитхабе
-//на клиенте написать калькулятор перевода чисел из одной системы счисления в другую. Расчеты должны проихводиться на бэкенде.
-//На бэкенде написать класс, который будет переводить с помощью соответствующих методов. Ответ выводить в морду экрана.
